@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialWidget());
 
+final String title = 'Privacy Policy';
+
 class MaterialWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: title,
       home: Home(),
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
@@ -56,7 +59,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Privacy Policy',
+          title,
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
