@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
       'At MakeshTech, one of our main priorities is the privacy of our users. This Privacy Policy document contains types of information that is collected and recorded by MakeshTech and how we use it.';
 
   final contact =
-      'If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at: ';
+      'If you have additional queries or require more information about our Privacy Policy, do not hesitate to contact us at: ';
 
   final consentTitle = 'Consent';
   final consent =
@@ -130,7 +130,7 @@ class _HomeState extends State<Home> {
                       'Your device and personal data may become more vulnerable to threats such as Ransomware/Malware from apps downloaded from unknown sources. We strongly advice to download the required software or apps from our official sources.'),
                   headingTitle('Updates to this Privacy Policy'),
                   paraText(
-                      'We may update our Privacy Policy from time to time to reflect the changes in our business practices. You are advised to review this Privacy Policy periodically for any changes. We will post reflect the changes in the “Last Updated” section mentioned above.'),
+                      'We may update our Privacy Policy from time to time to reflect the changes in our business practices. You are advised to review this Privacy Policy periodically for any changes. We will reflect the changes in the “Last Updated” section mentioned above.'),
                   headingTitle('Questions and Comments'),
                   SizedBox(height: space),
                   Wrap(
@@ -150,7 +150,7 @@ class _HomeState extends State<Home> {
                           )),
                     ],
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 35),
                   Text(
                     '© 2021 MakeshTech Inc. All Rights Reserved.',
                     style: TextStyle(
@@ -185,7 +185,7 @@ class _HomeState extends State<Home> {
             text,
             textAlign: TextAlign.left,
           ),
-          SizedBox(height: space),
+          SizedBox(height: space + 10),
         ],
       );
 
