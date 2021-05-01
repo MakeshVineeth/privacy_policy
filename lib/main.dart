@@ -89,6 +89,16 @@ class _HomeState extends State<Home> {
                   parent: BouncingScrollPhysics()),
               child: Column(
                 children: [
+                  Row(
+                    children: [
+                      Text(
+                        'Last Updated: ',
+                        style: TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                      Text(dateStr),
+                    ],
+                  ),
+                  SizedBox(height: 15),
                   paraText(initial),
                   SizedBox(height: space),
                   paraText(hereInOurCompany),
@@ -115,10 +125,10 @@ class _HomeState extends State<Home> {
                       'Internet and Read/Write External Storage are some of the common permissions required for the proper functioning of the apps. Some apps may or may not require any permissions at all. Please visit the app\'s description page on App Stores to learn about the permissions asked for each app.'),
                   headingTitle('Unknown Sources Installations'),
                   paraText(
-                      'Your device and personal data may become more vulnerable to threats such as Ransomware/Malware from apps downloaded from unknown sources. We strongly advice to download the required software or apps from their official sources.'),
+                      'Your device and personal data may become more vulnerable to threats such as Ransomware/Malware from apps downloaded from unknown sources. We strongly advice to download the required software or apps from our official sources.'),
                   headingTitle('Updates to this Privacy Policy'),
                   paraText(
-                      'We may update our Privacy Policy from time to time to reflect changes in our business practices. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page. We will post revisions to our policy on our Site and reflect that in the “Last Modified” below.'),
+                      'We may update our Privacy Policy from time to time to reflect changes in our business practices. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page. We will post revisions to our policy on our Site and reflect that in the “Last Updated” section mentioned above.'),
                   headingTitle('Questions and Comments'),
                   SizedBox(height: space),
                   Wrap(
@@ -137,16 +147,13 @@ class _HomeState extends State<Home> {
                           )),
                     ],
                   ),
-                  SizedBox(height: 20),
-                  Row(
-                    children: [
-                      Text(
-                        'Last Modified: ',
-                        style: TextStyle(fontWeight: FontWeight.w600),
-                      ),
-                      Text(dateStr),
-                    ],
-                  ),
+                  SizedBox(height: 25),
+                  Text(
+                    '© 2021 MakeshTech Inc. All Rights Reserved.',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  )
                 ],
               ),
             ),
