@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(MaterialWidget());
 final String title = 'MakeshTech\'s Privacy Policy';
+final dateStr = '01 May 2021';
 
 class MaterialWidget extends StatelessWidget {
   @override
@@ -30,7 +32,7 @@ class _HomeState extends State<Home> {
       'At MakeshTech, one of our main priorities is the privacy of our users. This Privacy Policy document contains types of information that is collected and recorded by MakeshTech and how we use it.';
 
   final contact =
-      'If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at makeshvineeth9@gmail.com';
+      'If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at ';
 
   final consentTitle = 'Consent';
   final consent =
@@ -52,6 +54,9 @@ class _HomeState extends State<Home> {
       'So, if any of our apps are supported by advertising, be assured that we will also provide an option to disable them through a much affordable in-app purchase. We would also provide an option to disable Interest-Based Ads depending on the availability, thus less tracking, for the people who do not intend to pay.';
 
   final space = 10.0;
+  static final radius = 20.0;
+  final _shape =
+      RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius));
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +69,11 @@ class _HomeState extends State<Home> {
           ),
         ),
         centerTitle: true,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+          bottom: Radius.circular(radius),
+        )),
+        backgroundColor: Color(0xFF5C6AB1),
       ),
       body: Container(
         margin: EdgeInsets.all(20.0),
@@ -71,8 +81,7 @@ class _HomeState extends State<Home> {
         height: MediaQuery.of(context).size.height,
         child: Card(
           elevation: 5,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          shape: _shape,
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: SingleChildScrollView(
@@ -111,8 +120,33 @@ class _HomeState extends State<Home> {
                   paraText(
                       'We may update our Privacy Policy from time to time to reflect changes in our business practices. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page. We will post revisions to our policy on our Site and reflect that in the “Last Modified” below.'),
                   headingTitle('Questions and Comments'),
-                  paraText(contact),
-                  paraText('Last Modified: 01 May 2021'),
+                  SizedBox(height: space),
+                  Wrap(
+                    children: [
+                      Text(contact),
+                      InkWell(
+                          onTap: () => _launchURL('mailto:$contact'),
+                          borderRadius: BorderRadius.circular(radius),
+                          child: Text(
+                            'makeshvineeth9@gmail.com',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: Colors.blue[800],
+                              decoration: TextDecoration.underline,
+                            ),
+                          )),
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Text(
+                        'Last Modified: ',
+                        style: TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                      Text(dateStr),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -140,9 +174,12 @@ class _HomeState extends State<Home> {
           Text(
             text,
             textAlign: TextAlign.left,
-            style: TextStyle(fontWeight: FontWeight.w600),
           ),
           SizedBox(height: space),
         ],
       );
+
+  void _launchURL(_url) async {
+    await canLaunch(_url) ? await launch(_url) : print('Error: Cannot Launch');
+  }
 }
