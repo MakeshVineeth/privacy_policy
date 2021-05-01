@@ -128,24 +128,17 @@ class _HomeState extends State<Home> {
   String getLastModifiedDate() {
     try {
       File _file = File('lib//main.dart');
-      File _file1 = File('main.dart.js');
       if (_file.existsSync()) {
-        return getLastModifiedDateStr(_file);
-      } else if (_file1.existsSync()) {
-        return getLastModifiedDateStr(_file1);
+        DateTime _date = _file.lastModifiedSync();
+
+        return DateFormat.yMMMMd('en_US').format(_date) +
+            ' ' +
+            DateFormat.Hm().format(_date);
       } else
         return '--';
     } catch (e) {
       return '--';
     }
-  }
-
-  String getLastModifiedDateStr(File _file) {
-    DateTime _date = _file.lastModifiedSync();
-
-    return DateFormat.yMMMMd('en_US').format(_date) +
-        ' ' +
-        DateFormat.Hm().format(_date);
   }
 
   Widget headingTitle(String text) => Column(
@@ -166,7 +159,7 @@ class _HomeState extends State<Home> {
           Text(
             text,
             textAlign: TextAlign.left,
-            style: TextStyle(),
+            style: TextStyle(fontWeight: FontWeight.w600),
           ),
           SizedBox(height: space),
         ],
