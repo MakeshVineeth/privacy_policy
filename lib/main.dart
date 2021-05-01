@@ -1,8 +1,10 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() => runApp(MaterialWidget());
 
-final String title = 'Privacy Policy';
+final String title = 'MakeshTech\'s Privacy Policy';
 
 class MaterialWidget extends StatelessWidget {
   @override
@@ -90,17 +92,30 @@ class _HomeState extends State<Home> {
                   paraText(logsText),
                   headingTitle(processTitle),
                   paraText(processInfo),
+                  headingTitle('Links to Other Websites'),
+                  paraText(
+                      'Our service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.'),
                   headingTitle(partnersTitle),
                   paraText(partnersText),
                   paraText(removeAdsText),
+                  headingTitle('Children’s Privacy'),
+                  paraText(
+                      'Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us. If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers.'),
                   headingTitle('Security of Your Personal Data'),
                   paraText(
                       'The security of your Personal Data is really important to us, but do remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to follow the best practices to protect your data, We cannot guarantee it\'s absolute security.'),
+                  headingTitle('Needed Permissions for Apps'),
+                  paraText(
+                      'Internet and Read/Write External Storage are some of the common permissions required for the proper functioning of the apps. Some apps may or may not require any permissions at all. Please visit the app\'s description page on App Stores to learn about the permissions asked for each app.'),
+                  headingTitle('Unknown Sources Installations'),
+                  paraText(
+                      'Your device and personal data may become more vulnerable to threats such as Ransomware/Malware from apps downloaded from unknown sources. We strongly advice to download the required software or apps from their official sources.'),
                   headingTitle('Updates to this Privacy Policy'),
                   paraText(
-                      'We may update our Privacy Policy from time to time to reflect changes in our business practices. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.'),
+                      'We may update our Privacy Policy from time to time to reflect changes in our business practices. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page. We will post revisions to our policy on our Site and reflect that in the “Last Modified” below.'),
                   headingTitle('Questions and Comments'),
                   paraText(contact),
+                  paraText('Last Modified: ${getLastModifiedDate()}'),
                 ],
               ),
             ),
@@ -108,6 +123,22 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+  }
+
+  String getLastModifiedDate() {
+    try {
+      File _file = File('lib//main.dart');
+      if (_file.existsSync()) {
+        DateTime _date = _file.lastModifiedSync();
+
+        return DateFormat.yMMMMd('en_US').format(_date) +
+            ' ' +
+            DateFormat.Hm().format(_date);
+      } else
+        return '--';
+    } catch (e) {
+      return '--';
+    }
   }
 
   Widget headingTitle(String text) => Column(
