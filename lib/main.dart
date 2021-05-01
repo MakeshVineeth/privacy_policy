@@ -3,7 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(MaterialWidget());
 final String title = 'MakeshTech\'s Privacy Policy';
-final dateStr = '01 May 2021';
+final dateStr = '1st May, 2021';
 
 class MaterialWidget extends StatelessWidget {
   @override
@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
       'At MakeshTech, one of our main priorities is the privacy of our users. This Privacy Policy document contains types of information that is collected and recorded by MakeshTech and how we use it.';
 
   final contact =
-      'If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at ';
+      'If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at: ';
 
   final consentTitle = 'Consent';
   final consent =
@@ -57,6 +57,8 @@ class _HomeState extends State<Home> {
   static final radius = 20.0;
   final _shape =
       RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius));
+
+  final String email = 'makeshvineeth9@gmail.com';
 
   @override
   Widget build(BuildContext context) {
@@ -128,26 +130,27 @@ class _HomeState extends State<Home> {
                       'Your device and personal data may become more vulnerable to threats such as Ransomware/Malware from apps downloaded from unknown sources. We strongly advice to download the required software or apps from our official sources.'),
                   headingTitle('Updates to this Privacy Policy'),
                   paraText(
-                      'We may update our Privacy Policy from time to time to reflect changes in our business practices. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page. We will post revisions to our policy on our Site and reflect that in the “Last Updated” section mentioned above.'),
+                      'We may update our Privacy Policy from time to time to reflect the changes in our business practices. You are advised to review this Privacy Policy periodically for any changes. We will post reflect the changes in the “Last Updated” section mentioned above.'),
                   headingTitle('Questions and Comments'),
                   SizedBox(height: space),
                   Wrap(
+                    textDirection: TextDirection.ltr,
+                    runSpacing: 3.0,
                     children: [
                       Text(contact),
-                      InkWell(
-                          onTap: () => _launchURL('mailto:$contact'),
-                          borderRadius: BorderRadius.circular(radius),
+                      GestureDetector(
+                          onTap: () => _launchURL('mailto:$email'),
                           child: Text(
-                            'makeshvineeth9@gmail.com',
+                            email,
                             style: TextStyle(
                               fontWeight: FontWeight.w600,
-                              color: Colors.blue[800],
+                              color: Colors.blue[700],
                               decoration: TextDecoration.underline,
                             ),
                           )),
                     ],
                   ),
-                  SizedBox(height: 25),
+                  SizedBox(height: 30),
                   Text(
                     '© 2021 MakeshTech Inc. All Rights Reserved.',
                     style: TextStyle(
