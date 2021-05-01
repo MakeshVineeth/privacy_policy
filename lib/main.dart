@@ -1,9 +1,6 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 void main() => runApp(MaterialWidget());
-
 final String title = 'MakeshTech\'s Privacy Policy';
 
 class MaterialWidget extends StatelessWidget {
@@ -115,7 +112,7 @@ class _HomeState extends State<Home> {
                       'We may update our Privacy Policy from time to time to reflect changes in our business practices. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page. We will post revisions to our policy on our Site and reflect that in the “Last Modified” below.'),
                   headingTitle('Questions and Comments'),
                   paraText(contact),
-                  paraText('Last Modified: ${getLastModifiedDate()}'),
+                  paraText('Last Modified: 01 May 2021'),
                 ],
               ),
             ),
@@ -123,22 +120,6 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
-  }
-
-  String getLastModifiedDate() {
-    try {
-      File _file = File('lib//main.dart');
-      if (_file.existsSync()) {
-        DateTime _date = _file.lastModifiedSync();
-
-        return DateFormat.yMMMMd('en_US').format(_date) +
-            ' ' +
-            DateFormat.Hm().format(_date);
-      } else
-        return '--';
-    } catch (e) {
-      return '--';
-    }
   }
 
   Widget headingTitle(String text) => Column(
