@@ -3,7 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(MaterialWidget());
 final String title = 'MakeshTech\'s Privacy Policy';
-final dateStr = '1st May, 2021';
+final dateStr = '7th March, 2022';
 
 class MaterialWidget extends StatelessWidget {
   @override
@@ -152,7 +152,7 @@ class _HomeState extends State<Home> {
                   ),
                   SizedBox(height: 35),
                   Text(
-                    '© 2021 MakeshTech Inc. All Rights Reserved.',
+                    '© 2022 MakeshTech Inc. All Rights Reserved.',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                     ),
