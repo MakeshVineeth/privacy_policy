@@ -152,7 +152,7 @@ class _HomeState extends State<Home> {
                   ),
                   SizedBox(height: 35),
                   Text(
-                    '© 2022 MakeshTech Inc. All Rights Reserved.',
+                    '© 2023 MakeshTech Inc. All Rights Reserved.',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                     ),
@@ -189,7 +189,10 @@ class _HomeState extends State<Home> {
         ],
       );
 
-  void _launchURL(_url) async {
-    await canLaunch(_url) ? await launch(_url) : print('Error: Cannot Launch');
+  void _launchURL(String _url) async {
+    try {
+      Uri uri = Uri.parse(_url);
+      await launchUrl(uri);
+    } catch (e) {}
   }
 }
