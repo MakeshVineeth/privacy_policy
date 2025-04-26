@@ -3,9 +3,11 @@ import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(MaterialWidget());
 final String title = 'MakeshTech\'s Privacy Policy';
-final dateStr = '7th March, 2022';
+final dateStr = '26th April, 2025';
 
 class MaterialWidget extends StatelessWidget {
+  const MaterialWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,11 +22,13 @@ class MaterialWidget extends StatelessWidget {
 }
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
-  _HomeState createState() => _HomeState();
+  HomeState createState() => HomeState();
 }
 
-class _HomeState extends State<Home> {
+class HomeState extends State<Home> {
   final initial =
       'We do not collect your personal data, period. Most of our projects are also Open-Source Projects.';
 
@@ -55,8 +59,9 @@ class _HomeState extends State<Home> {
 
   final space = 10.0;
   static final radius = 20.0;
-  final _shape =
-      RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius));
+  final _shape = RoundedRectangleBorder(
+    borderRadius: BorderRadius.circular(radius),
+  );
 
   final String email = 'makeshvineeth9@gmail.com';
 
@@ -64,17 +69,11 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          title,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(radius),
-        )),
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(radius)),
+        ),
         backgroundColor: Color(0xFF5C6AB1),
       ),
       body: Container(
@@ -88,7 +87,8 @@ class _HomeState extends State<Home> {
             padding: const EdgeInsets.all(20.0),
             child: SingleChildScrollView(
               physics: AlwaysScrollableScrollPhysics(
-                  parent: BouncingScrollPhysics()),
+                parent: BouncingScrollPhysics(),
+              ),
               child: Column(
                 children: [
                   Row(
@@ -112,25 +112,31 @@ class _HomeState extends State<Home> {
                   paraText(processInfo),
                   headingTitle('Links to Other Websites'),
                   paraText(
-                      'Our service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.'),
+                    'Our service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.',
+                  ),
                   headingTitle(partnersTitle),
                   paraText(partnersText),
                   paraText(removeAdsText),
                   headingTitle('Children’s Privacy'),
                   paraText(
-                      'Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us. If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers.'),
+                    'Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us. If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers.',
+                  ),
                   headingTitle('Security of Your Personal Data'),
                   paraText(
-                      'The security of your Personal Data is really important to us, but do remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to follow the best practices to protect your data, We cannot guarantee it\'s absolute security.'),
+                    'The security of your Personal Data is really important to us, but do remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to follow the best practices to protect your data, We cannot guarantee it\'s absolute security.',
+                  ),
                   headingTitle('Needed Permissions for Apps'),
                   paraText(
-                      'Internet and Read/Write External Storage are some of the common permissions required for the proper functioning of the apps. Some apps may or may not require any permissions at all. Please visit the app\'s description page on App Stores to learn about the permissions asked for each app.'),
+                    'Internet and Read/Write External Storage are some of the common permissions required for the proper functioning of the apps. Some apps may or may not require any permissions at all. Please visit the app\'s description page on App Stores to learn about the permissions asked for each app.',
+                  ),
                   headingTitle('Unknown Sources Installations'),
                   paraText(
-                      'Your device and personal data may become more vulnerable to threats such as Ransomware/Malware from apps downloaded from unknown sources. We strongly advice to download the required software or apps from our official sources.'),
+                    'Your device and personal data may become more vulnerable to threats such as Ransomware/Malware from apps downloaded from unknown sources. We strongly advice to download the required software or apps from our official sources.',
+                  ),
                   headingTitle('Updates to this Privacy Policy'),
                   paraText(
-                      'We may update our Privacy Policy from time to time to reflect the changes in our business practices. You are advised to review this Privacy Policy periodically for any changes. We will reflect the changes in the “Last Updated” section mentioned above.'),
+                    'We may update our Privacy Policy from time to time to reflect the changes in our business practices. You are advised to review this Privacy Policy periodically for any changes. We will reflect the changes in the “Last Updated” section mentioned above.',
+                  ),
                   headingTitle('Questions and Comments'),
                   SizedBox(height: space),
                   Wrap(
@@ -139,24 +145,23 @@ class _HomeState extends State<Home> {
                     children: [
                       Text(contact),
                       GestureDetector(
-                          onTap: () => _launchURL('mailto:$email'),
-                          child: Text(
-                            email,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              color: Colors.blue[700],
-                              decoration: TextDecoration.underline,
-                            ),
-                          )),
+                        onTap: () => _launchURL('mailto:$email'),
+                        child: Text(
+                          email,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            color: Colors.blue[700],
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 35),
                   Text(
-                    '© 2023 MakeshTech Inc. All Rights Reserved.',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                    ),
-                  )
+                    '© 2025 MakeshTech Inc. All Rights Reserved.',
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  ),
                 ],
               ),
             ),
@@ -167,32 +172,23 @@ class _HomeState extends State<Home> {
   }
 
   Widget headingTitle(String text) => Column(
-        children: [
-          Text(
-            text,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18.0,
-            ),
-          ),
-          SizedBox(height: space),
-        ],
-      );
+    children: [
+      Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0)),
+      SizedBox(height: space),
+    ],
+  );
 
   Widget paraText(String text) => Column(
-        children: [
-          Text(
-            text,
-            textAlign: TextAlign.left,
-          ),
-          SizedBox(height: space + 10),
-        ],
-      );
+    children: [
+      Text(text, textAlign: TextAlign.left),
+      SizedBox(height: space + 10),
+    ],
+  );
 
-  void _launchURL(String _url) async {
+  void _launchURL(String url) async {
     try {
-      Uri uri = Uri.parse(_url);
+      Uri uri = Uri.parse(url);
       await launchUrl(uri);
-    } catch (e) {}
+    } catch (_) {}
   }
 }
